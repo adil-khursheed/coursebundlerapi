@@ -26,13 +26,6 @@ app.use(
   })
 );
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT,DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
-
 //importing and using Routes
 import course from "./routes/courseRoutes.js";
 import user from "./routes/userRoutes.js";
