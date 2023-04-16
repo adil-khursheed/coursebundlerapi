@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import ErrorMiddleware from "./middlewares/Error.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 config({
   path: "./config/config.env",
@@ -13,12 +14,8 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 const app = express();
 
 // Using Middlewares
-app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+app.use(bodyParser.json({ limit: "100mb" }));
+app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
