@@ -8,6 +8,8 @@ config({
   path: "./config/config.env",
 });
 
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+
 const app = express();
 
 // Using Middlewares
@@ -20,7 +22,7 @@ app.use(
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: FRONTEND_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
