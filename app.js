@@ -15,7 +15,13 @@ const app = express();
 
 // Using Middlewares
 app.use(bodyParser.json({ limit: "100mb" }));
-app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+    parameterLimit: 100000,
+    limit: "100mb",
+  })
+);
 app.use(cookieParser());
 app.use(
   cors({
