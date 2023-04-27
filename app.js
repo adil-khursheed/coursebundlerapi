@@ -9,7 +9,7 @@ config({
   path: "./config/config.env",
 });
 
-const FRONTEND_URL = process.env.FRONTEND_URL;
+// const FRONTEND_URL = process.env.FRONTEND_URL;
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(
 app.use(cookieParser());
 app.use(
   cors({
-    origin: FRONTEND_URL,
+    origin: process.env.FRONTEND_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
