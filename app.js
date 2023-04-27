@@ -9,7 +9,7 @@ config({
   path: "./config/config.env",
 });
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 const app = express();
 
